@@ -1,13 +1,9 @@
 # Frontend: SciCat GUI
 
-<img src="https://github.com/SciCatProject/frontend/blob/master/src/assets/images/site-logo.png" alt="sci-cat-logo" width="100">
+<img src="https://github.com/als-computing/scicat-frontend-als/blob/master/src/assets/images/site-logo.png" alt="sci-cat-logo" width="100">
 
-[![Test Status](https://github.com/SciCatProject/frontend/actions/workflows/deploy.yml/badge.svg?branch=master)](https://github.com/SciCatProject/frontend/actions)
-[![DeepScan grade](https://deepscan.io/api/teams/8394/projects/21314/branches/609376/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=8394&pid=21314&bid=609376)
-[![Known Vulnerabilities](https://snyk.io/test/github/SciCatProject/frontend/master/badge.svg?targetFile=package.json)](https://snyk.io/test/github/SciCatProject/frontend/master?targetFile=package.json)
-[![DOI](https://zenodo.org/badge/106383330.svg)](https://zenodo.org/badge/latestdoi/106383330)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-[![Coverage Status](https://coveralls.io/repos/github/SciCatProject/frontend/badge.svg?branch=master)](https://coveralls.io/github/SciCatProject/frontend?branch=master)
+[![Test Status](https://github.com/als-computing/scicat-frontend-als/actions/workflows/test.yml/badge.svg?branch=ALS-Customizations)](https://github.com/als-computing/scicat-frontend-als/actions)
+[![Deplopy Status](https://github.com/als-computing/scicat-frontend-als/actions/workflows/deploy.yml/badge.svg?branch=ALS-Customizations)](https://github.com/als-computing/scicat-frontend-als/actions)
 
 ## Summary
 
@@ -16,16 +12,12 @@ as well as the option to carry out actions (i.e. archiving and publishing) and a
 
 For the full documentation please go to the [SciCat home page](https://scicatproject.github.io/) and follow the [documentation link](https://scicatproject.github.io/documentation)
 
-## Configuration
+## Note: This repo has a default branch of "ALS-Customizations", not the usual default of "master".
 
-- [Site logo related images](SITE-LOGO-CONFIGURATION.md)
+If you wish to contribute code back to the main SciCat project, merge your branch to master and make the pull request from there.
 
-## License
+Avoid merging "ALS-Customizations" into master.
 
-See the [LICENSE](LICENSE) file for details.
+### Differences between "ALS Customizations" and the official repo as of Apr 2025:
 
-## Acknowledgments
-
-Scicat is developed at PSI, ESS and MAXIV with in-kind funding from ESS and from the European Union Framework Programme for Research and Innovation Horizon 2020, under grant agreement 676548, “BrightnESS”.
-
-[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=SciCatProject_frontend)
+* Draft feature work to add collections of external links to data sets
