@@ -127,7 +127,10 @@ export class LoginComponent implements OnInit, OnDestroy {
       .pipe(filter((vm) => vm.isLoggedIn))
       .subscribe(() => {
         this.store.dispatch(fetchCurrentUserAction());
-        this.router.navigateByUrl(this.returnUrl || "/datasets");
+        // This is needed by ALS because we intend to navigate outside of the SciCat front end's routes
+        // once we reach the login success page.
+        window.location.href = this.returnUrl || "/datasets";
+        //this.router.navigateByUrl(this.returnUrl || "/datasets");
       });
 
     this.route.queryParams.subscribe((params) => {
