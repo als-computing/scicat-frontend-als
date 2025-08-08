@@ -18,6 +18,15 @@ If you wish to contribute code back to the main SciCat project, merge your branc
 
 Avoid merging "ALS-Customizations" into master.
 
+## Get started
+
+1. Ensure you have Node.js 18+ and npm installed (https://nodejs.org/en).
+2. `git clone https://github.com/als-computing/scicat-frontend-als.git`
+3. `npm install`
+4. `npm run start`
+
+## License
+
 ### Differences between "ALS Customizations" and the official repo as of Apr 2025:
 
 * Draft feature work to add collections of external links to data sets
