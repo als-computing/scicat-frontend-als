@@ -16,10 +16,16 @@ import { CommonModule } from "@angular/common";
 import { SharedTableModule } from "./modules/shared-table/shared-table.module";
 import { ScicatDataService } from "./services/scicat-data-service";
 import { ScientificMetadataTreeModule } from "./modules/scientific-metadata-tree/scientific-metadata-tree.module";
-import { FiltersModule } from "./modules/filters/filters.module";
 import { AttachmentService } from "./services/attachment.service";
 import { DynamicMatTableModule } from "./modules/dynamic-material-table/table/dynamic-mat-table.module";
-import { TranslateModule } from "@ngx-translate/core";
+import { JsonFormsModule } from "@jsonforms/angular";
+import { JsonFormsAngularMaterialModule } from "@jsonforms/angular-material";
+import { JsonFormsCustomRenderersModule } from "./modules/jsonforms-custom-renderers/jsonforms-custom-renderers.module";
+import { FullTextSearchBarModule } from "./modules/full-text-search-bar/full-text-search-bar.module";
+import { SharedFilterModule } from "./modules/shared-filter/shared-filter.module";
+import { NgxNumericRangeFormFieldModule } from "./modules/numeric-range/ngx-numeric-range-form-field.module";
+import { EmptyContentModule } from "./modules/generic-empty-content/empty-content.module";
+import { JsonformsAccordionRendererService } from "./services/jsonforms-accordion-renderer.service";
 @NgModule({
   imports: [
     BreadcrumbModule,
@@ -31,6 +37,7 @@ import { TranslateModule } from "@ngx-translate/core";
     PipesModule,
     ScientificMetadataModule,
     SearchBarModule,
+    FullTextSearchBarModule,
     TableModule,
     SearchParametersDialogModule,
     CommonModule,
@@ -38,7 +45,12 @@ import { TranslateModule } from "@ngx-translate/core";
     SharedTableModule,
     ScientificMetadataTreeModule,
     DynamicMatTableModule.forRoot({}),
-    TranslateModule,
+    NgxNumericRangeFormFieldModule,
+    EmptyContentModule,
+    JsonFormsModule,
+    JsonFormsAngularMaterialModule,
+    JsonFormsCustomRenderersModule,
+    SharedFilterModule,
   ],
   providers: [
     ConfigService,
@@ -46,6 +58,7 @@ import { TranslateModule } from "@ngx-translate/core";
     FilePathTruncate,
     ScicatDataService,
     AttachmentService,
+    JsonformsAccordionRendererService,
   ],
   exports: [
     BreadcrumbModule,
@@ -55,14 +68,19 @@ import { TranslateModule } from "@ngx-translate/core";
     PipesModule,
     ScientificMetadataModule,
     SearchBarModule,
+    FullTextSearchBarModule,
     TableModule,
     CommonModule,
     FormsModule,
     SharedTableModule,
     ScientificMetadataTreeModule,
-    FiltersModule,
     DynamicMatTableModule,
-    TranslateModule,
+    NgxNumericRangeFormFieldModule,
+    EmptyContentModule,
+    JsonFormsModule,
+    JsonFormsAngularMaterialModule,
+    JsonFormsCustomRenderersModule,
+    SharedFilterModule,
   ],
 })
 export class SharedScicatFrontendModule {}

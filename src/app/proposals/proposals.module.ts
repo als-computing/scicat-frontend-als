@@ -27,21 +27,30 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { SharedScicatFrontendModule } from "shared/shared.module";
 import { FlexLayoutModule } from "@ngbracket/ngx-layout";
 import { FileSizePipe } from "shared/pipes/filesize.pipe";
-import { ProposalFilterComponent } from "./proposal-filter/proposal-filter.component";
+import { ProposalSideFilterComponent } from "./proposal-filters/side-bar-filter/proposal-side-filter.component";
 import { LogbooksModule } from "logbooks/logbooks.module";
-import { ProposalDashboardComponent } from "./proposal-dashboard/proposal-dashboard.component";
+import { ProposalTableComponent } from "./proposal-table/proposal-table.component";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { LogbookEffects } from "state-management/effects/logbooks.effects";
 import { logbooksReducer } from "state-management/reducers/logbooks.reducer";
 import { ProposalLogbookComponent } from "./proposal-logbook/proposal-logbook.component";
 import { RelatedProposalsComponent } from "./related-proposals/related-proposals.component";
 import { ProposalDatasetsComponent } from "./proposal-datasets/proposal-datasets.component";
-import { TranslateModule } from "@ngx-translate/core";
+import { ProposalDashboardComponent } from "./proposal-dashboard/proposal-dashboard.component";
+import { MatSidenavModule } from "@angular/material/sidenav";
+import { ProposalSearchBarComponent } from "./proposal-filters/search-bar/proposal-search-bar.component";
+import { PipesModule } from "shared/pipes/pipes.module";
+import { instrumentsReducer } from "state-management/reducers/instruments.reducer";
+import { InstrumentEffects } from "state-management/effects/instruments.effects";
 
 @NgModule({
   imports: [
     CommonModule,
-    EffectsModule.forFeature([ProposalEffects, LogbookEffects]),
+    EffectsModule.forFeature([
+      ProposalEffects,
+      LogbookEffects,
+      InstrumentEffects,
+    ]),
     FlexLayoutModule,
     LogbooksModule,
     MatButtonModule,
@@ -56,18 +65,22 @@ import { TranslateModule } from "@ngx-translate/core";
     MatTableModule,
     MatTabsModule,
     MatTooltipModule,
+    MatSidenavModule,
     NgxJsonViewerModule,
     RouterModule,
     SharedScicatFrontendModule,
+    PipesModule,
     StoreModule.forFeature("proposals", proposalsReducer),
     StoreModule.forFeature("logbooks", logbooksReducer),
-    TranslateModule,
+    StoreModule.forFeature("instruments", instrumentsReducer),
   ],
   declarations: [
+    ProposalDashboardComponent,
     ViewProposalPageComponent,
     ProposalDetailComponent,
-    ProposalFilterComponent,
-    ProposalDashboardComponent,
+    ProposalSideFilterComponent,
+    ProposalSearchBarComponent,
+    ProposalTableComponent,
     ProposalLogbookComponent,
     RelatedProposalsComponent,
     ProposalDatasetsComponent,

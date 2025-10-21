@@ -2,18 +2,26 @@ import {
   OutputDatasetObsoleteDto,
   ProposalClass,
 } from "@scicatproject/scicat-sdk-ts-angular";
+import { TableField } from "shared/modules/dynamic-material-table/models/table-field.model";
 
 export interface DateRange {
   begin: string;
   end: string;
 }
 
+export interface FacetCount {
+  _id?: string;
+  count: number;
+}
+export interface FacetCounts {
+  [field: string]: FacetCount[];
+}
+
 export interface ProposalFilters {
-  text: string;
+  fields: Record<string, string | DateRange>;
   skip: number;
   limit: number;
   sortField: string;
-  dateRange: DateRange;
 }
 
 export interface ProposalDatesetFilters {
@@ -31,8 +39,10 @@ export interface ProposalsState {
   relatedProposalsCount: number;
   datasets: OutputDatasetObsoleteDto[];
 
+  columns: TableField<any>[];
   proposalsCount: number;
   datasetsCount: number;
+  facetCounts: FacetCounts;
 
   hasPrefilledFilters: boolean;
   proposalFilters: ProposalFilters;
@@ -53,20 +63,18 @@ export const initialProposalsState: ProposalsState = {
   relatedProposalsCount: 0,
   datasets: [],
 
+  facetCounts: {},
+
   proposalsCount: 0,
   datasetsCount: 0,
 
   hasPrefilledFilters: false,
 
   proposalFilters: {
-    text: "",
+    fields: {},
     skip: 0,
     limit: 25,
     sortField: "createdAt:desc",
-    dateRange: {
-      begin: "",
-      end: "",
-    },
   },
 
   datasetFilters: {
@@ -81,4 +89,40 @@ export const initialProposalsState: ProposalsState = {
     limit: 25,
     sortField: "creationTime:desc",
   },
+
+  columns: [
+    {
+      name: "proposalId",
+      width: 180,
+      enabled: true,
+    },
+    {
+      name: "title",
+      width: 250,
+      enabled: true,
+    },
+    {
+      name: "abstract",
+      type: "hoverContent",
+      width: 150,
+      enabled: true,
+    },
+    {
+      name: "startTime",
+      type: "date",
+      format: "yyyy/MM/dd",
+      width: 200,
+      enabled: true,
+    },
+    {
+      name: "pi_lastname",
+      enabled: true,
+    },
+    { name: "type", width: 200, enabled: true },
+    {
+      name: "numberOfDatasets",
+      width: 150,
+      enabled: true,
+    },
+  ],
 };

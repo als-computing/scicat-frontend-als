@@ -17,10 +17,11 @@ const reducer = createReducer(
   ),
 
   on(
-    fromActions.fetchCountCompleteAction,
-    (state, { count }): ProposalsState => ({
+    fromActions.fetchFacetCountsCompleteAction,
+    (state, { facetCounts, allCounts }): ProposalsState => ({
       ...state,
-      proposalsCount: count,
+      facetCounts,
+      proposalsCount: allCounts,
     }),
   ),
 
@@ -50,7 +51,15 @@ const reducer = createReducer(
 
   on(
     fromActions.fetchProposalDatasetsCompleteAction,
-    (state, { datasets }): ProposalsState => ({ ...state, datasets }),
+    (state, { datasets, limit, skip }): ProposalsState => ({
+      ...state,
+      datasets,
+      datasetFilters: {
+        ...state.datasetFilters,
+        skip,
+        limit,
+      },
+    }),
   ),
 
   on(
