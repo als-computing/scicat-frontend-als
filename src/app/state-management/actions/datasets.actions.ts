@@ -151,6 +151,10 @@ export const updatePropertyAction = createAction(
   "[Dataset] Update Property",
   props<{ pid: string; property: Record<string, unknown> }>(),
 );
+export const updateScientificMetadataCompleteAction = createAction(
+  "[Dataset] Update Property Complete",
+  props<{ pid: string }>(),
+);
 export const updatePropertyCompleteAction = createAction(
   "[Dataset] Update Property Complete",
 );
@@ -299,7 +303,7 @@ export const addDatasetFilterAction = createAction(
   props<{
     key: string;
     value: string | DateRange | string[] | INumericRange;
-    filterType: "text" | "dateRange" | "number" | "multiSelect";
+    filterType: "text" | "dateRange" | "number" | "multiSelect" | "checkbox";
   }>(),
 );
 export const removeDatasetFilterAction = createAction(
@@ -307,7 +311,7 @@ export const removeDatasetFilterAction = createAction(
   props<{
     key: string;
     value?: string;
-    filterType: "text" | "dateRange" | "number" | "multiSelect";
+    filterType: "text" | "dateRange" | "number" | "multiSelect" | "checkbox";
   }>(),
 );
 
